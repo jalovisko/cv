@@ -1,0 +1,469 @@
+%!TeX program = pdflatex
+% Nikita Letov's Curriculum Vitae
+% Email: letovnn@gmail.com
+% Repo: https://github.com/jalovisko/cv
+
+\documentclass[12pt,letterpaper]{report}
+
+\usepackage[T1]{fontenc} % output T1 font encoding (8-bit) for accented characters as single glyph
+\usepackage[strict,autostyle]{csquotes} % smart and nestable quote marks
+\usepackage[USenglish]{babel} % regionalize hyphens, quote marks, etc automatically
+\usepackage{microtype}% improve text appearance with kerning, etc
+\usepackage{datetime} % enable formatting of date output
+\usepackage{tabto}    % make nice tabbing
+\usepackage{hyperref} % enable hyperlinks and pdf metadata
+\usepackage{geometry} % manually set page margins
+\usepackage{enumitem} % enumerate with [resume] option
+\usepackage{titlesec} % allow custom section fonts
+\usepackage{setspace} % custom line spacing
+
+% what is your name?
+\newcommand{\myname}{Nikita Letov}
+
+% select default typefaces
+\usepackage{ebgaramond} % document's serif typeface
+\usepackage{helvet}     % document's sans serif typeface
+
+% how far to tab for list items with left-aligned date: different fonts need different widths
+\newcommand{\listtabwidth}{1.7cm}
+
+% define font to use as document's title
+\newcommand{\namefont}[1]{{\normalfont\bfseries\Huge{#1}}}
+
+% set section heading fonts and before/after spacing
+\SetTracking{encoding=*, family=\sfdefault}{30} % increase sans serif headings tracking
+\titleformat{\section}{\lsstyle\sffamily\small\bfseries\uppercase}{}{}{}{}
+\titlespacing{\section}{0pt}{30pt plus 4pt minus 4pt}{8pt plus 2pt minus 2pt}
+
+% set subsection heading fonts and before/after spacing
+\titleformat{\subsection}{\lsstyle\sffamily\footnotesize\bfseries}{}{}{}{}
+\titlespacing{\subsection}{0pt}{16pt plus 4pt minus 4pt}{4pt plus 2pt minus 2pt}
+
+% set page margins (assumes letter paper)
+\geometry{body={6.5in, 9.0in},
+    left=1.0in,
+    top=1.0in}
+
+% prevent paragraph indentation
+\setlength\parindent{0em}
+
+% set line spacing
+\setstretch{0.9}
+
+% define space between list items
+\newcommand{\listitemspace}{0.25em}
+
+% make unordered lists without bullets and use compact spacing
+\renewenvironment{itemize}
+{\begin{list}{}{\setlength{\leftmargin}{0em}
+                \setlength{\parskip}{0em}
+                \setlength{\itemsep}{\listitemspace}
+                \setlength{\parsep}{\listitemspace}}}
+{\end{list}}
+
+% make tabbed lists so content is left-aligned next to years
+\TabPositions{\listtabwidth}
+\newlist{tablist}{description}{3}
+\setlist[tablist]{leftmargin=\listtabwidth,
+    labelindent=0em,
+    topsep=0em,
+    partopsep=0em,
+    itemsep=\listitemspace,
+    parsep=\listitemspace,
+    font=\normalfont}
+
+% print only the month and year when using \today
+\newdateformat{monthyeardate}{\monthname[\THEMONTH] \THEYEAR}
+
+% define hyperlink appearance and metadata for pdf properties
+\hypersetup{
+    colorlinks  = true,
+    urlcolor    = black,
+    citecolor   = black,
+    linkcolor   = black,
+    pdfauthor   = {\myname},
+    pdfkeywords = {geometric modeling, computer graphics, mechanical engineering},
+    pdftitle    = {\myname: Curriculum Vitae},
+    pdfsubject  = {Curriculum Vitae},
+    pdfpagemode = UseNone
+}
+
+\begin{document}
+    \raggedright{}
+
+    % display your name as the document title
+    \namefont{\myname}
+
+    % affiliation and contact info blocks
+    \vspace{1em}
+    \begin{minipage}[t]{0.700\textwidth}
+        % current primary affiliation, left-aligned
+        Ph.D. candidate \\
+        Department of Mechanical Engineering \\
+        McGill University
+    \end{minipage}
+    \begin{minipage}[t]{0.295\textwidth}
+        % contact info details, right-aligned
+        \flushright{}
+        \href{mailto:letovnn@gmail.com}{letovnn@gmail.com} \\
+        +1 438 722 7569 \\
+        \href{https://github.com/jalovisko}{github.com/jalovisko}
+    \end{minipage}
+
+
+    \section*{Education}
+
+    \begin{tablist}
+
+        \item[Ph.D.] \tab{}Mechanical Engineering, McGill University, Montr\'eal QC, Canada, 2019--
+        \item[M.S.]  \tab{}Space and Engineering Systems, Skolkovo Institute of Science and Technology, Moscow, Russia, 2016--2018
+        \item[]      \tab{}Visiting Graduate Researcher, Systems Engineering, ISAE-SUPAERO, Toulouse, France, 2018
+        \item[B.S.]  \tab{}Automation of Technological Processes and Production \textit{summa cum laude}, Bauman Moscow State Technical University, Moscow, Russia, 2012--2016
+
+    \end{tablist}
+
+    \section*{Appointments}
+
+    \begin{tablist}
+
+        \item[2020--]   \tab{}Axya, Inc. (Montr\'eal QC, Canada) \\
+                              Geometric Modeling Researcher (MITACS), R\&D Department, 2020-- \\
+                              Team Lead, R\&D Department, 2021--
+
+        \item[2019--21] \tab{}McGill University (Montr\'eal QC, Canada) \\
+                              Teaching Assistant, Department of Mechanical Engineering
+
+        \item[2017--18] \tab{}Skolkovo Institute of Science and Technology (Moscow, Russia) / Airbus S.A.S. (Toulouse, France) \\
+                              Researcher, Space Center, 2017--18 \\
+                              External Demonstrator Feasibility Assessment Expert, Airbus S.A.S., 2018
+
+        \item[2017]     \tab{}C3D Labs (Kolomna, Russia) \\
+                              Research Intern, Aerospace Software Developer, Department of City and Regional Planning
+
+        \item[2016]     \tab{}Moscow Specialized Automotive Plant (Moscow, Russia) \\
+                              Process Engineer, Department of Process Engineering
+        \item[2016]     \tab{}Angstrem, OJSC (Moscow, Russia) \\
+                            Research Intern in Electrical Engineering
+
+    \end{tablist}
+
+
+
+    \section*{Research Areas}
+
+    \begin{itemize}
+
+        \item Geometric modeling: computer-aided design, function representation, heterogeneous structures
+        \item Data science: computer graphics, computational geometry, machine learning
+        \item Engineering: mechanical engineering, systems engineering, physics
+
+    \end{itemize}
+
+
+
+    \section*{Publications}
+
+    \subsection*{Journal Articles}
+
+    \begin{tablist}
+
+        \item[2021] \tab{}Liu, Y., Zheng, G., \textbf{Letov, N.}, and Zhao, Y. F. \enquote{A Survey of Modeling and Optimization Methods for Multi-Scale Heterogeneous Lattice Structures.} \textit{Journal of Mechanical Design}, 143 (4), 040803. \href{https://doi.org/10.1115/1.4047917}{doi:10.1115/1.4047917}
+        
+        \item[2021] \tab{}\textbf{Letov, N.}, Velivela, P. T., Sun, S., and Zhao, Y. F. ( \enquote{Challenges and Opportunities in Geometric Modeling of Complex Bio-Inspired Three-Dimensional Objects Designed for Additive Manufacturing.} \textit{Journal of Mechanical Design}, 143 (12), 121705. \href{https://doi.org/10.1115/1.4051720}{doi:10.1115/1.4051720}
+
+        \item[2016] \tab{}\textbf{Letov, N.}, Kuzmenko, E., Nenashev, A., and Gavryushin, S. \enquote{Development of Automated Dentistry Oriented Tool Storage System.} \textit{Journal of Biomedical Radioelectronics}, 3, 87--91. \href{http://radiotec.ru/ru/journal/Biomedical_Radioelectronics/number/2016-3/article/17794}{radiotec.ru}
+
+    \end{tablist}
+
+
+
+%    \subsection*{Book Chapters}
+%
+%    \begin{tablist}
+%
+%    \end{tablist}
+
+
+
+    \subsection*{Conference Proceedings}
+
+    \begin{tablist}
+
+        \item[2021] \tab{}Velivela, P. T., \textbf{Letov, N.}, Liu, Y., and Zhao, Y. F. \enquote{Application of domain integrated design methodology for bio-inspired design-a case study of suture pin design.} \textit{Proceedings of the Design Society}, 1, 487--496. \href{https://doi.org/10.1017/pds.2021.49}{doi:10.1017/pds.2021.49}
+
+        \item[2020] \tab{}\textbf{Letov, N.}, and Zhao, Y. F. \enquote{Volumetric Cells: A Framework for a Bio-Inspired Geometric Modelling Method to Support Heterogeneous Lattice Structures.} \textit{Proceedings of the Design Society}, 1, 295--304. \href{https://doi.org/10.1017/dsd.2020.164}{doi:10.1017/dsd.2020.164}
+
+    \end{tablist}
+
+
+
+%    \subsection*{Edited Articles and Reviews}
+%
+%    \begin{tablist}
+%
+%    \end{tablist}
+
+
+
+    \subsection*{Reports and Other Publications}
+
+    \begin{tablist}
+
+        \item[2022] \tab{} Yusuf Bekci, R., Mahdid, Y., Xing, J., \textbf{Letov, N.}, Zhang, Y., and Pasha, Z. \enquote{Probabilistic Models for Manufacturing Lead Times.} \href{https://arxiv.org/abs/2204.13792}{arXiv:2204.13792}
+
+        \item[2017] \tab{} Tarasov, I., Murzakhanov, I., \textbf{Letov, N.}, Gabitov, I. \enquote{Energy flows in electric grids.} Skolkovo Institute of Science and Technology. \href{https://www.academia.edu/33930130}{academia.edu/33930130}
+
+    \end{tablist}
+
+
+
+%    \subsection*{Patents}
+%
+%    \begin{tablist}
+%
+%    \end{tablist}
+
+
+
+    \subsection*{Manuscripts under Review}
+
+    \begin{tablist}
+
+    \item[\the\year] \tab{}Gao, Z., \textbf{Letov, N.}, Zhao, Y. F., Zhang, X., Wu, Y., Alex Leung, C. L., and Wang, H. \enquote{Data-driven design of biometric metamaterials with extremely recoverable and ultrahigh mechanical performance.} Under review.
+
+    \item[\the\year] \tab{}\textbf{Letov, N.}, and Zhao, Y. F. \enquote{Beam-based lattice topology transition with function representation to support additive manufacturing.} Under review.
+
+    \item[\the\year] \tab{}\textbf{Letov, N.}, and Zhao, Y. F. \enquote{A geometric modeling framework to support the design of heterogeneous lattice structures with non-linearly varying geometry.} Under review.
+
+    \end{tablist}
+
+
+
+    \section*{Invited Talks}
+
+    \begin{tablist}
+
+        \item[2018] \tab{}\enquote{Solid modeling applications for complex technology roadmap systems.} C3D Labs. C3Days Conference. Moscow, Russia. May 17.
+
+    \end{tablist}
+
+    \subsection*{Campus Talks}
+
+    \begin{tablist}
+
+        \item[2017] \tab{}\enquote{Adapting C3D solid modeling kernel for aerospace applications.} Skolkovo Institute of Science and Technology. Skoltech Industrial Day. Moscow, Russia. Oct 31.
+
+    \end{tablist}
+
+%    \section*{Conference Activity}
+%
+%    \subsection*{Keynote and Plenary Addresses}
+%
+%    \begin{tablist}
+%
+%    \end{tablist}
+%
+%    \subsection*{Sessions Organized}
+%
+%    \begin{tablist}
+%
+%    \end{tablist}
+
+%    \subsection*{Sessions Chaired}
+%
+%    \begin{tablist}
+%
+%    \end{tablist}
+
+%    \subsection*{Invited Panelist}
+%
+%    \begin{tablist}
+%
+%    \end{tablist}
+
+%    \subsection*{Symposia}
+%
+%    \begin{tablist}
+%
+%    \end{tablist}
+
+%    \subsection*{Conference Papers Presented\footnote{Presenting author \textit{italicized} if other than first author. * indicates supervised student coauthor.}}
+%
+%    \begin{tablist}
+%
+%        \item[2022] \tab{}Boeing, G., \textit{Y. Lu},* C. Pilgram,* and P. Mannino.* \enquote{Race, Class, and the Production of and Exposure to Vehicular Pollution in Los Angeles.} Association for Public Policy Analysis \& Management Fall Conference. Austin, Texas. Mar 27--29.
+%
+%    \end{tablist}
+
+
+
+    \section*{Grants and Awards}
+
+    \subsection*{Awards and Honors}
+
+    \begin{tablist}
+
+        \item[2018] \tab{}Best Project Award (Barcast: sportbar finding bot), Skolkovo Institute of Science and Technology, May 29
+        \item[2017] \tab{}Best Project Award (RecyBot: Delta Robot for Battery Removal), Skolkovo Institute of Science and Technology in collaboration with Massachusetts Institute Technology, Mar 29
+        \item[2017] \tab{}Best Poster Award (Energy Flows in Electric Grid), Skolkovo Institute of Science and Technology in collaboration with Massachusetts Institute Technology, Mar 29
+        \item[2016] \tab{}Graduation with Honors, Bauman Moscow State Technological University, Jun 30
+
+    \end{tablist}
+
+    \subsection*{Grants and Fellowships}
+
+    \begin{tablist}
+
+        \item[2022] \tab{}Data mining from computer-aided design
+        files (\$15,000). Mitacs Accelerate Award.\@
+
+        \item[2021] \tab{}Enhancing visualization of manufacturing
+        complexity highlights on CAD file (\$15,000). Mitacs
+        Accelerate Award.\@
+
+        \item[2020] \tab{}Visualization ofmanufacturing complexity
+        highlights on CAD file (\$15,000). Mitacs Accelerate Award.\@
+
+        \item[2019--21] \tab{}McGill Engineering Doctoral Award
+        (\$96,000).\@
+
+        \item[2018] Skoltech Academic Mobility Award (€4,000)
+        
+        \item[2016--18] \tab{}Skoltech Scholarship Award for
+        Academic Excellence (RUR1,200,000)
+
+        \item[2012--16] \tab{}Bauman University Scholarship Award for
+        Academic Excellence (RUR192,000)
+
+    \end{tablist}
+
+
+
+%    \section*{Courses Taught}
+%
+%    \subsection*{University of Southern California}
+%
+%    \begin{itemize}
+%
+%        \item Urban Informatics
+%
+%    \end{itemize}
+%
+
+    \section*{Service}
+%
+%    \subsection*{Academic Journal Editorial Boards}
+%
+%    \begin{itemize}
+%
+%        \item \textit{Urban Studies}, 2021--
+%
+%    \end{itemize}
+%
+    \subsection*{Academic Journal Peer Review}
+
+    \begin{itemize}
+
+        \item \textit{Journal of Mechanical Design}
+
+    \end{itemize}
+
+%    \subsection*{Academic Press Peer Review}
+%
+%    \begin{itemize}
+%
+%        \item Cambridge University Press
+%
+%    \end{itemize}
+
+%    \subsection*{Funding Agency Peer Review}
+%
+%    \begin{itemize}
+%
+%        \item National Science Foundation
+%
+%    \end{itemize}
+
+%    \subsection*{Service to Field}
+%
+%    \begin{itemize}
+%
+%        \item Review and Appraisal Committee, Association of Collegiate Schools of Planning, 2021--22
+%
+%    \end{itemize}
+
+%    \subsection*{Service to Department}
+%
+%    \begin{itemize}
+%
+%        \item Ph.D. Degree Committee, USC Price, 2020--22
+%
+%    \end{itemize}
+
+%    \subsection*{Doctoral Committees}
+%
+%    \begin{itemize}
+%
+%        \item Robert Binder, USC Price, exam committee
+%
+%    \end{itemize}
+
+%    \subsection*{Studio Review Jury}
+%
+%    \begin{itemize}
+%
+%        \item MIT, Workshop on Geographic Information Systems (Prof.\ Sarah Williams), Fall 2018
+%
+%    \end{itemize}
+
+
+
+    \section*{Memberships}
+
+    \begin{itemize}
+
+        \item EuroScience
+        \item International Department of the Community of Young Scientists
+        \item Moscow Department of the Community of Young Scientists
+
+    \end{itemize}
+
+
+
+%    \section*{Credentials}
+%
+%    \begin{itemize}
+%
+%        \item U.S. Department of Defense secret clearance
+%
+%    \end{itemize}
+
+
+
+%    \section*{Consulting}
+%
+%    \begin{tablist}
+%
+%        \item[2017--19] \tab{}The Public Good Projects, New York, New York
+%
+%    \end{tablist}
+
+
+
+%    \section*{Professional Employment}
+%
+%    \begin{tablist}
+%
+%        \item[2009--13] \tab{}Accenture, New York, New York; London, England; San Diego, California
+%
+%    \end{tablist}
+
+
+
+    % display today's date as Month Year after a vertical space below the end of the text
+    \begin{center}
+        \vfill
+        Updated \monthyeardate\today
+    \end{center}
+
+\end{document}
